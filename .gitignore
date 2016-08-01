@@ -3,33 +3,47 @@
 # =============== #
 [Tt]emp/
 [Oo]bj/
-[Bb]uild
+[Bb]uild*/
 /[Ll]ibrary/
-sysinfo.txt
-*.stackdump
+UnityGenerated/
+Mockups/
  
-# ============================================= #
-# Visual Studio / MonoDevelop / Rider generated #
-# ============================================= #
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
 [Ee]xported[Oo]bj/
 .vs/
-/*.userprefs
-/*.csproj
-/*.pidb
-/*.suo
-/*.sln*
-/*.user
-/*.unityproj
-/*.booproj
-/.idea*/
+*.unityproj
+*.sln*
+*.tmp
+*.userprefs
+*.pidb
+*.svd
+*.userprefs
+*.csproj
+*.pidb
+*.suo
+*.user
+*.unityproj
+*.booproj
+/.idea*
+ 
+# Unity3D generated meta files
+*.pidb.meta
+ 
+# Unity3D Generated Files on Crash Reports
+sysinfo.txt
  
 # ============ #
 # OS generated #
 # ============ #
-.DS_Store*
+.DS_Store
+.DS_Store?
 ._*
 .Spotlight-V100
 .Trashes
+Icon?
 ehthumbs.db
 [Tt]humbs.db
 [Dd]esktop.ini
+*.stackdump
