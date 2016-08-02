@@ -9,6 +9,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(PlayerController))]
+[RequireComponent(typeof(GunController))]
 public class Player : MonoBehaviour
 {
     // Variable Declarations
@@ -23,6 +24,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 5;
 
     // Function Definitions
+    GunController gunController;
 
     // Unity Functions
 
@@ -34,6 +36,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         controller = GetComponent<PlayerController>();
+        gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
     }
 
@@ -44,10 +47,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        // Movement Input
         Vector3 moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical"));
         Vector3 moveVelocity = moveInput.normalized * moveSpeed;
         controller.Move(moveVelocity);
 
+        // Look Input
         Ray ray = viewCamera.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayDist;
@@ -57,6 +62,12 @@ public class Player : MonoBehaviour
             Vector3 point = ray.GetPoint(rayDist);
             //Debug.DrawLine(ray.origin, point, Color.red);
             controller.LookAt(point);
+        }
+
+        // Weapon Input
+        if (Input.GetMouseButton(0))
+        {
+            gunController.Shoot();
         }
     }
 }
