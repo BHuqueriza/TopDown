@@ -16,6 +16,7 @@ public class Bullet : MonoBehaviour
     // Static Variables
 
     // Private Variables
+    float damage = 1f;
 
     // Public Variables
     public float speed = 10f;
@@ -64,6 +65,12 @@ public class Bullet : MonoBehaviour
 
     void OnHitObject(RaycastHit hit)
     {
+        IDamageable damageableObject = hit.collider.GetComponent<IDamageable>();
+        if (damageableObject != null)
+        {
+            damageableObject.TakeHit(damage, hit);
+        }
+
         print(hit.collider.gameObject.name);
         GameObject.Destroy(gameObject);
     }

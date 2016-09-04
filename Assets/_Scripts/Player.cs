@@ -10,7 +10,7 @@ using System.Collections;
 
 [RequireComponent(typeof(PlayerController))]
 [RequireComponent(typeof(GunController))]
-public class Player : MonoBehaviour
+public class Player : LivingEntity
 {
     // Variable Declarations
     PlayerController controller;
@@ -33,8 +33,9 @@ public class Player : MonoBehaviour
 
     }
 
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         controller = GetComponent<PlayerController>();
         gunController = GetComponent<GunController>();
         viewCamera = Camera.main;
