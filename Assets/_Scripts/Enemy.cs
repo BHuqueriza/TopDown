@@ -11,7 +11,7 @@ using System.Collections;
 [RequireComponent (typeof (NavMeshAgent))]
 public class Enemy : LivingEntity
 {
-    public enum State { Idle, Chasing, Attacking};
+    public enum State { Idle, Chasing, Attacking };
     State currentState;
 
     // Variable Declarations
